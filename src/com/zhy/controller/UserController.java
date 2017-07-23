@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zhy.converter.DateEditor;
+import com.zhy.model.Time;
 import com.zhy.model.User;
 
 @Controller
@@ -65,5 +66,10 @@ public class UserController {
 		logger.info(user);
 		model.addAttribute("user", user);
 		return "success";
+	}
+	@RequestMapping(value="/test",method=RequestMethod.POST)
+	public String test(@ModelAttribute Time time,Model model) {
+		model.addAttribute("time", time);
+		return "success2";
 	}
 }
